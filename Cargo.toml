@@ -1,0 +1,9 @@
+[package]
+name = "vb-tools"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.71"
+elf = "0.7.2"
+structopt = "0.3.26"
