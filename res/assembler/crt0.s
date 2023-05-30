@@ -214,5 +214,6 @@ loop_start6:
 	movhi hi(_start), r0, r31
 	movea lo(_start), r31, r31
 	jmp [r31]
-	/* TODO: improve padding */
-	mov r0, r0
+	nop
+	nop
+	nop
