@@ -19,26 +19,29 @@ __text_vma = ORIGIN(rom);
 
 SECTIONS
 {
-    .text __text_vma :
+    .text __text_vma : ALIGN(4)
     {
         *(.text*)
+        . = ALIGN(4);
     } >rom = 0xFF
 
-    .rodata . :
+    .rodata : ALIGN(4)
     {
         *(.rodata*)
+        . = ALIGN(4);
     } >rom = 0xff
 
     __data_lma = .;
-    .data __data_vma : AT(__data_lma)
+    .data __data_vma : AT(__data_lma) ALIGN(4)
     {
         *(.data*)
         *(COMMON)
+        . = ALIGN(4);
         PROVIDE (__data_end = .);
     } >wram = 0xff
 
     .vbheader 0xffffffe0 :
     {
-        fill 0x69
+        *(.vbheader*)
     }
 }
